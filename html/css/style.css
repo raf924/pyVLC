@@ -1,0 +1,213 @@
+.info{
+	/*-webkit-marquee: auto medium infinite scroll normal;
+	overflow-x: -webkit-marquee; */
+	text-overflow:ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	max-width: 40%;
+}
+
+.info:hover{
+	text-overflow:normal;
+	overflow: visible;
+}
+
+.info#Artist, .info#Album{
+	font-weight: 100;
+	font-size: 0.8em;
+}
+
+.playback-action#shuffle, .playback-action#repeat{
+	font-size: 1.5em;
+}
+
+.playback-action#shuffle[state="on"]{
+	color:#0D9AD0;
+}
+.playback-action#shuffle[state="off"]{
+	color:black;
+}
+
+.playback-action#repeat[state="all"], .playback-action#repeat[state="one"]{
+	color:#0D9AD0;
+}
+
+.playback-action#repeat[state="no"]{
+	color: #3B3B3B;
+}
+
+.playback-action#repeat[state="all"]:before{
+	content: "\e031";
+}
+
+.playback-action#repeat[state="one"]:before{
+	content: "\e030";
+}
+
+.playback-action#repeat[state="no"]:before{
+	content: "\e031";
+}
+
+.player-action, .pb-btn{
+	background-color: transparent;
+	outline: none;
+	border: none;
+	color:#3B3B3B;
+}
+
+.pb-btn{
+	font-size: 0.8em;
+}
+
+.player-action{
+	font-size: 1.5em;
+}
+
+.player-action:active, .pb-btn:active{
+	color:black;
+}
+.player-action[disabled]:active{
+	color:#3B3B3B;
+}
+.player-action#pause{
+	font-size: 2em;
+}
+
+tr.song-item.active > td.metadata{
+	/*font-weight: bolder;*/
+	background-color:#0069D9;
+	color:white;
+}
+.song-item {
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+#searchDiv, #searchDiv div{
+	margin-right: 1em;
+}
+#searchDiv{
+	top:1.3em;
+}
+
+.window-action#restore:hover, .window-action#expand:hover, .window-action#hide:hover{
+	background-color: rgb(54,101,179);
+}
+.window-action-btn-group .btn.window-action{
+	font-family: Marlett;
+	font-weight: bold;
+	font-size: 1.3em;
+	padding-top: 0;	
+	padding-bottom: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.window-action-btn-group .window-action:last-child{
+	padding-left: 1.1em;
+	padding-right: 1.1em;
+}
+
+.window-action:hover{
+	color:white;
+}
+
+.window-action-pull-right{
+	margin-top: -1px;
+	margin-right: 5px;
+}
+body{
+	overflow: hidden;
+	font-size: 1.3em;
+	margin: 0;
+	background-color: white; 
+}
+
+#seeker-slider .slider-handle{
+	background:rgb(213,213,213);
+	outline: none;
+	border-radius: 10%;
+	width:5px;
+	margin-left: 0;
+	box-shadow:0px 0px 5px rgb(50,50,50);
+}
+
+#seeker-slider .slider-selection{
+	background: #737475;
+}
+
+#seeker-slider .slider-track{
+	background: rgb(210,210,210);
+}
+
+.menubar{
+	background-color: rgba(147, 147, 147, 0.11)
+}
+
+.menubar li a:hover{
+	background-color: rgb(50,50,50);
+	color:white;
+}
+
+.info-well{
+	text-align: center;
+}
+.info#title{
+	font-size: 1.1em;
+	margin-bottom: -1px;
+}
+.info#album, .info#artist{
+	font-size: 0.8em;
+	font-weight: 100;
+}
+
+#seeker-slider{
+	width: 75%;
+}
+
+#songList{
+	cursor: default;
+	width: 100%;
+	height: 100%;
+}
+
+.table-responsive::-webkit-scrollbar-track{
+	-webkit-border-radius: 10px;
+	background-color: #CACACA;
+}
+
+.table-responsive::-webkit-scrollbar{
+	width: 5px;
+	height: 5px;
+
+}
+
+.table-responsive::-webkit-scrollbar-thumb:horizontal{
+	-webkit-border-radius: 10px;
+	background-color: gray;
+}
+.metadata{
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	/* Required to make elements draggable in old WebKit */
+	-khtml-user-drag: element;
+	-webkit-user-drag: element;
+}
+
+#output{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+#songList th{
+	cursor: pointer;
+}
+
+#songList th + div.resize{
+	cursor: ew-resize;
+	background-color: #A1A1A1;
+	width: 1px;
+}

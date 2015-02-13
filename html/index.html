@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="slider/css/bootstrap-slider.css">
+	<link rel="stylesheet" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="slider/js/bootstrap-slider.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="row">
+			<div class="col-xs-2 col-md-3" style="right:-15px">
+				<button id="previous" class="player-action" data-action="previous" disabled="disabled"><span class="glyphicon glyphicon-backward"></span></button>
+				<button id="pause" class="player-action" data-action="pause" disabled="disabled"><span class="glyphicon glyphicon-play"></span></button>
+				<button id="next" class="player-action" data-action="next" disabled="disabled"><span class="glyphicon glyphicon-forward"></span></button>
+			</div>
+			<div class="col-md-1">
+
+			</div>
+			<div class="col-xs-5 col-md-4">
+				<div class="well info-well">
+					<div class="row">
+						<div class="col-xs-2">
+							<button class="pb-btn">
+								<span id="shuffle" state="off" class="playback-action glyphicon glyphicon-random pull-left"></span>
+							</button>
+							<br>
+							<button class="pb-btn">
+								<span id="repeat" state="no" class="playback-action glyphicon pull-left"></span>	
+							</button>	
+						</div>
+						<div class="col-xs-8">
+							<label class="info" id="Title"></label>
+							<br>
+							<label class="info" id="Artist"></label><label id="separator">--</label><label class="info" id="Album"></label>	
+						</div>
+					</div>
+					<div class="row">
+						<label id="elapsed"></label>
+						<input type="text" id="seeker" class="span2" value="5">
+						<label id="total"></label>	
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-5 col-md-4">
+				<div class="window-action-pull-right">
+					<div class=" pull-right btn-group btn-group-sm window-action-btn-group">
+						<button class="window-action btn btn-default" data-action="hide" id="hide" aria-hidden="true">0</button>
+						<button class="window-action btn btn-default" data-action="restore" id="restore" aria-hidden="true">2</button>
+						<button class="window-action btn btn-default" data-action="expand" id="expand" aria-hidden="true">1</button>
+						<button class="window-action btn btn-danger" data-action="close" id="close" aria-hidden="true">r</button>
+					</div>
+				</div>
+				<div id="searchDiv" class="col-md-8">
+					<div class="input-group input-group-sm">
+						<input id="search" type="text" class="form-control" placeholder="Search">
+						<span class="input-group-btn">
+							<button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menubar row container-fluid">
+			<ul class="nav navbar-nav navbar-left">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Fichier<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><button id="openFile" class="window-action btn btn-link" data-action="openFile">Ouvrir un fichier</button></li>
+						<li><button id="addFile" class="window-action btn btn-link" data-action="addFile">Ajouter un fichier à la bibliothèque</button></li>
+						<li><button id="addFolder" class="window-action btn btn-link" data-action="addFolder">Ajouter un dossier à la bibliothèque</button></li>
+						<li><button id="close" class="window-action btn btn-link" data-action="close">Quitter</button></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="">
+		<div class="table-responsive">
+			<table id="songList" class="table container-fluid">
+				<thead><tr id="tags"></tr></thead>
+				<tbody></tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

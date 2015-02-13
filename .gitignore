@@ -17,6 +17,11 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+*.dll
+
+build/
+plugins/
+__pycache__/
 # =========================
 # Operating System Files
 # =========================
