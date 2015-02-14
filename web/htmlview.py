@@ -7,6 +7,8 @@ from web import webview,  webinterface
 from threading import Thread
 class HtmlView(QWidget):
     instance = None
+    fileToAdd = pyqtSignal(str)
+    fileToPlay = pyqtSignal(str)
     def load(self, parent=None):
         if self.instance is None:
             self.instance = HtmlView()
@@ -32,7 +34,7 @@ class HtmlView(QWidget):
         scene.setActiveWindow(self.view)
         self.gview = QGraphicsView(scene, self)
         self.gview.setFrameShape(QFrame.NoFrame)
-        self.gview.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.gview.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
         self.gview.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         mainLayout = QVBoxLayout()
         mainLayout.addWidget(self.gview)
@@ -57,25 +59,6 @@ class HtmlView(QWidget):
             self.interface.expanded.emit()
         elif not self.isMinimized():
             self.interface.restored.emit()
-    @pyqtSlot()
-    def addFile(self):
-        class FileDialog(QThread):
-            def run(self):
-                (self.file, filter) = QFileDialog.getOpenFileName(None, "Add a media to the library", None, "Audio (*.mp3 *.flac)")
-                self.exec()
-        fT = FileDialog()
-        fT.start()
-        fT.wait()
-        #self.library.addFile(file)
-    @pyqtSlot()
-    def openFile(self):
-        class FileDialog(Thread):
-            def run(self):
-                (self.file, filter) = QFileDialog.getOpenFileName(self, "Add a media to the library", None, "Audio (*.mp3 *.flac)")
-        fT = FileDialog()
-        fT.start()
-        fT.join()
-        self.player.play(fT.file)
     @pyqtSlot()
     def addInterface(self):
         self.view.page().mainFrame().addToJavaScriptWindowObject("interface", self.interface)

@@ -186,6 +186,12 @@ body{
 	-webkit-border-radius: 10px;
 	background-color: gray;
 }
+
+.table-responsive::-webkit-scrollbar-thumb:vertical{
+	-webkit-border-radius: 10px;
+	background-color: gray;
+}
+
 .metadata{
 	-moz-user-select: none;
 	-khtml-user-select: none;

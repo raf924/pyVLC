@@ -48,8 +48,6 @@ class Library(QObject):
             self.cur.execute("UPDATE library SET {} = ? WHERE Path = ?".format(tag), (metadata[tag],path))
         self.conn.commit()
         self.updateSongList()
-        media().release()
-        self.libraryUpdated.emit()
         
     def getPath(self,  id):
         for song in self._songList:

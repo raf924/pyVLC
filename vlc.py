@@ -1343,12 +1343,15 @@ class Instance(_Ctype):
     '''
 
     def __new__(cls, *args):
+        print("New Instance",args)
         if len(args) == 1:
             # Only 1 arg. It is either a C pointer, or an arg string,
             # or a tuple.
             i = args[0]
             if isinstance(i, _Ints):
-                return _Constructor(cls, i)
+                instance = _Constructor(cls, i)
+                print(instance)
+                return instance
             elif isinstance(i, basestring):
                 args = i.strip().split()
             elif isinstance(i, _Seqs):
@@ -1362,7 +1365,9 @@ class Instance(_Ctype):
             args = ['vlc', '--plugin-path=' + plugin_path]
         if PYTHON3:
             args = [ str_to_bytes(a) for a in args ]
-        return libvlc_new(len(args), args)
+        instance = libvlc_new(len(args), args)
+        print(instance)
+        return instance
 
     def media_player_new(self, uri=None):
         """Create a new MediaPlayer instance.
