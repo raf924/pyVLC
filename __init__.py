@@ -11,9 +11,10 @@ import vlc
 
 class Application(QApplication):
     def __init__(self, *args):
-        import ctypes
-        myappid = 'r@f924.pyvlc.0-1'
-        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+        if sys.platform == "win32":
+            import ctypes
+            myappid = 'r@f924.pyvlc.0-1'
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
         QApplication.__init__(self, *args)
         #instance = vlc.Instance(["-Incurse"])
         self.view = htmlview.HtmlView()
